@@ -21,9 +21,9 @@ export const fetchTagsFaulure = (error) => ({
 export const fetchTags = () => {
     return dispatch => {
         dispatch(fetchTagsRequest())
-        return axios.get('https://api.stackexchange.com/2.3/tags?site=stackoverflow')
+        return axios.get('https://api.stackexchange.com/2.3/tags')
         .then(response => {
-            console.log('dane:', response.data.items  )
+            console.log('dane:', response.data.items)
             dispatch(fetchTagsSuccess(response.data.items))
         })
         .catch(error => {
